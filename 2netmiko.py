@@ -1,24 +1,25 @@
 #!/usr/bin/env python
 
 from netmiko import ConnectHandler
-from getpass import getpass
+#from getpass import getpass
 
-passwd = getpass()
+#passwd = getpass()
+from devices_import import * 
 
-NXOS1={
-  "host": 'nxos1.lasthop.io',
-  "username": 'pyclass',  
-  "password": passwd,
-  "device_type": 'cisco_nxos_ssh',
-  "session_log": 'log_NXOS1.txt'
-}
-NXOS2={
-  "host": 'nxos2.lasthop.io',
-  "username": 'pyclass',  
-  "password": passwd,
-  "device_type": 'cisco_nxos_ssh',
-  "session_log": 'log_NXOS2.txt'
-}
+#NXOS1={
+#  "host": 'nxos1.lasthop.io',
+#  "username": 'pyclass',  
+#  "password": passwd,
+#  "device_type": 'cisco_nxos_ssh',
+#  "session_log": 'log_NXOS1.txt'
+#}
+#NXOS2={
+#  "host": 'nxos2.lasthop.io',
+#  "username": 'pyclass',  
+#  "password": passwd,
+#  "device_type": 'cisco_nxos_ssh',
+#  "session_log": 'log_NXOS2.txt'
+#}
 
 devices=[NXOS1,NXOS2]
 
@@ -30,6 +31,6 @@ for device in devices:
 
 #show version
 net_connect = ConnectHandler(**NXOS1)
-with open('log-sh_version.txt','w') as f:
+with open('output-sh_version.txt','w') as f:
   version=net_connect.send_command('show version')
   f.write('\nNXOS1 SH VER\n\n' + version)
