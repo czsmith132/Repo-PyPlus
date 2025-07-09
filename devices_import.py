@@ -18,3 +18,10 @@ NXOS2={
   "device_type": 'cisco_nxos_ssh',
   "session_log": 'log_NXOS2.txt'
 }
+cisco4={
+  "host": 'cisco3.lasthop.io',
+  "username": 'pyclass',
+  "password": passwd,
+  "device_type": 'cisco_ios_ssh',
+  "session_log": 'log_CISCO4.txt'
+}
